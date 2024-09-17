@@ -47,4 +47,4 @@ ___YES__ 1 pt: Methods and variables all have clear and descriptive names
 
 ___YES__ 1 pt: All required files included with submission (including completed checklist file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+___YES__ 1 pt: `reflection.md` contains your reflection on the assignment

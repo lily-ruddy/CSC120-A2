@@ -1,3 +1,4 @@
 Use this file to record your reflection on this assignment. 
 
 What worked, what didn't, what advice would you give someone taking this course in the future?
+I struggled a bit getting started with this assignment. It's been a while since I last took 110, so trying to reremember python and converting code from procedural to objecting oriented code was a bit challenging. I knew which methods to add into the resale shop class, but figuring out which variables went in and which didn't was tricky. I would suggest to go to TA hours in ford for this class because they helped me greatly. They were able to point me into the right direction and guided me along appropriately. My advice is to reach out to the TAs or the professor for help because they are a great resource. 
