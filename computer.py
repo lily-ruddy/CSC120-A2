@@ -40,6 +40,7 @@ def main():
         "macOS Big Sur", 2013, 1500
     )
 
+    # Confirms creation of computer
     print(computer.description)
 
 # Only run main() if I am running this program directly

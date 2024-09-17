@@ -37,30 +37,37 @@ class ResaleShop:
             print("No inventory to display.")
     
     # Refurbish computer:
-    def refurbish(self, inventory:list, new_os: Optional[str] = None):
-        if self.itemID in self.inventory:
-            computer = self.inventory[self.itemID] # locate the computer
-            if int(computer["year_made"]) < 2000:
-                computer["price"] = 0 # too old to sell, donation only
-            elif int(computer["year_made"]) < 2012:
-                computer["price"] = 250 # heavily-discounted price on machines 10+ years old
-            elif int(computer["year_made"]) < 2018:
-                computer["price"] = 550 # discounted price on machines 4-to-10 year old machines
+    def refurbish(self, computer, new_os: Optional[str] = None):
+        if computer in self.inventory:
+            if int(computer.year_made) < 2000:
+                computer.price = 0 # too old to sell, donation only
+            elif int(computer.year_made) < 2012:
+                computer.price = 250 # heavily-discounted price on machines 10+ years old
+            elif int(computer.year_made) < 2018:
+                computer.price = 550 # discounted price on machines 4-to-10 year old machines
             else:
-                computer["price"] = 1000 # recent stuff
+                computer.price = 1000 # recent stuff
             
             if new_os is not None:
-                computer["operating_system"] = new_os # update details after installing new OS
+                computer.operating_system = new_os # update details after installing new OS
         else:
             print("Item", self.itemID, "not found. Please select another item to refurbish.")
     
     # Update price:
-    #def update_price():
-        #
+    def update_price(self, computer, new_price: int):
+        if computer in self.inventory:
+            computer.price = new_price
+        else:
+            print("Item", computer.description, "not found. Cannot update price.")
         
     # Sell Computer:
-    #def sell(self):
-        #
+    def sell(self, computer):
+        if computer in self.inventory:
+            self.inventory.remove(computer)
+            print("Item", computer.description, "sold!")
+        else: 
+            print("Item", computer.description, "not found. Please select another item to sell.")
+
 
         
 
@@ -80,7 +87,17 @@ def main():
     resale_example.print_inventory()
 
     # Refirbish computer
-    resale_example.refurbish(list_example,"IOS 15")
+    resale_example.refurbish(example_com)
+
+
+    # Update price
+    print(example_com.price)
+    resale_example.update_price(example_com, 1000)
+    print(example_com.price)
+
+    # Sell computer
+    resale_example.sell(example_com)
+
   
       
       
