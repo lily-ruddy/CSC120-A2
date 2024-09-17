@@ -1,10 +1,12 @@
+# CSC 120 - Lily Ruddy
 from computer import Computer
-from typing import Dict, Optional
+from typing import Optional
 
 
 class ResaleShop:
 
     # What attributes will it need?
+    # Attributes:
     inventory: list
     itemID: int
 
@@ -23,7 +25,6 @@ class ResaleShop:
         self.inventory.append(computer) # add computer to inventory
         print("Added", computer.description, "to inventory.") # conformation 
         return self.itemID
-    
     
     # Print inventory:
     def print_inventory(self):
@@ -56,14 +57,14 @@ class ResaleShop:
     # Update price:
     def update_price(self, computer, new_price: int):
         if computer in self.inventory:
-            computer.price = new_price
+            computer.price = new_price # changes price to new price
         else:
             print("Item", computer.description, "not found. Cannot update price.")
         
     # Sell Computer:
     def sell(self, computer):
         if computer in self.inventory:
-            self.inventory.remove(computer)
+            self.inventory.remove(computer) # removes computer from the inventory
             print("Item", computer.description, "sold!")
         else: 
             print("Item", computer.description, "not found. Please select another item to sell.")
@@ -72,37 +73,56 @@ class ResaleShop:
         
 
 def main():
+
+    # Print a little banner
+    print("-" * 21)
+    print("COMPUTER RESALE STORE")
+    print("-" * 21)
+
     # Example computer  
     example_com = Computer("Mac Pro (Late 2013)",
         "3.5 GHc 6-Core Intel Xeon E5",
         1024, 64,
-        "macOS Big Sur", 2013, 1500)    
-    
+        "macOS Big Sur", 2013, 1500)  
+
     # Example computer list
     list_example = []
 
     # Add computers to resale shop
     resale_example = ResaleShop(list_example)
-    resale_example.buy(example_com)
+    resale_example.buy(example_com) # buys computer and adds to inventory
     resale_example.print_inventory()
 
     # Refirbish computer
-    resale_example.refurbish(example_com)
+    resale_example.refurbish(example_com, "IOS 16")
+    print("New operating system:",example_com.operating_system)
 
 
     # Update price
-    print(example_com.price)
+    print(example_com.description, "is",example_com.price) # old price of computer
     resale_example.update_price(example_com, 1000)
-    print(example_com.price)
+    print(example_com.description, "is now",example_com.price) # new price
 
     # Sell computer
     resale_example.sell(example_com)
 
-  
-      
-      
-      
+    # Print a little banner
+    print("-" * 26)
+    print("COMPUTER RESALE STORE PT 2")
+    print("-" * 26)
 
+    # Example computer 2  
+    example_com2 = Computer("Mac Pro",
+        "1.5 GHc 6-Core Intel Xeon E5",
+        1018, 32,
+        "macOS", 2000, 800)  
+    
+    # Testing error messages 
+    resale_example.print_inventory() # error message for print_inventory
+    resale_example.refurbish(example_com2, "IOS 10") # error message for refurbish
+    resale_example.update_price(example_com2, 900) # error message for update_price
+    resale_example.sell(example_com2) # error message for sell
+    
 
 
 # Only run main() if I am running this program directly

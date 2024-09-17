@@ -1,3 +1,4 @@
+# CSC 120 - Lily Ruddy
 class Computer:
 
     # What attributes will it need?
